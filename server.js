@@ -18,13 +18,6 @@ process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
 });
 
-client.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MongoDB:', err);
-    return;
-  }
-  console.log('Connected to MongoDB');
-
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
