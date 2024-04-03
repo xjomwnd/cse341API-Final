@@ -3,7 +3,6 @@ dotenv.config();
 
 const MongoClient = require('mongodb').MongoClient;
 
-const connectionString='mongodb+srv://finalproject:your_password_here@cluster0.hbwhk.mongodb.net/cse341-Final';
 
 
 let _db;

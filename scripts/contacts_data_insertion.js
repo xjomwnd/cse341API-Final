@@ -3,6 +3,7 @@
 // Connect to MongoDB server
 // Make sure MongoDB is running and accessible
 // Use appropriate connection string and database name
+// eslint-disable-next-line no-undef
 var conn = new Mongo();
 var db = conn.getDB("finalproject");
 
@@ -31,4 +32,5 @@ db.contacts.insertMany([
   }
 ]);
 
+// eslint-disable-next-line no-undef
 print("Data inserted successfully.");
