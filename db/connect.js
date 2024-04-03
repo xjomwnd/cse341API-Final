@@ -2,6 +2,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 const MongoClient = require('mongodb').MongoClient;
 
+
+const uri = 'DB_URI=mongodb+srv://finalproject:your_password_here@cluster0.hbwhk.mongodb.net/cse341-Final';
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 let _db;
 
 const initDb = (callback) => {

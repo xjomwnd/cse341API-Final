@@ -6,7 +6,6 @@ const app = express();
 
 require('dotenv').config();
 
-
 app
   .use(bodyParser.json())
   .use((req, res, next) => {
