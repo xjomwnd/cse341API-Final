@@ -4,6 +4,9 @@ const mongodb = require('./db/connect');
 const port = process.env.PORT || 8083;
 const app = express();
 
+require('dotenv').config();
+
+
 app
   .use(bodyParser.json())
   .use((req, res, next) => {
