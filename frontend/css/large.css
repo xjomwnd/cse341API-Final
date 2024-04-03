@@ -1,0 +1,31 @@
+/* Mobile styles */
+@media only screen and (max-width: 768px) {
+    header, main, aside, footer {
+        padding: 5px;
+    }
+  
+    .logo {
+        font-size: 18px;
+    }
+  
+    nav ul li {
+        margin-right: 10px;
+    }
+  
+    .feed, aside {
+        flex-basis: 100%;
+    }
+  
+    .interactions button {
+        margin-right: 3px;
+    }
+  
+    .profile-pic {
+        width: 30px;
+        height: 30px;
+    }
+  
+    footer ul li {
+        margin-right: 5px;
+    }
+  }
