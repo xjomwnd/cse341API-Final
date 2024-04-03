@@ -3,7 +3,7 @@ const router = express.Router();
 // eslint-disable-next-line no-unused-vars
 const Follow = require('../models/follow');
 // eslint-disable-next-line no-unused-vars
-const { validateFollow } = require('../middleware/validation');
+const { validateFollow } = require('../middleware/validate');
 
 // Follow a user
 // eslint-disable-next-line no-unused-vars

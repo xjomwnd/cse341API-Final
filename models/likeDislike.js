@@ -3,7 +3,7 @@ const router = express.Router();
 // eslint-disable-next-line no-unused-vars
 const likeDislike = require('../models/likeDislike');
 // eslint-disable-next-line no-unused-vars
-const { validateLikeDislike } = require('../middleware/validation');
+const { validateLikeDislike } = require('../middleware/validate');
 
 // Like a post
 // eslint-disable-next-line no-unused-vars
