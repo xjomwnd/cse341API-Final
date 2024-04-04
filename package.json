@@ -19,6 +19,7 @@
     "express": "^4.19.2",
     "mongodb": "^6.5.0",
     "mongoose": "^8.2.4",
+    "passport": "^0.7.0",
     "swagger-ui-express": "^4.3.0",
     "validatorjs": "^3.22.1"
   },
