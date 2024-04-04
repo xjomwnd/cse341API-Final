@@ -33,4 +33,4 @@ db.contacts.insertMany([
 ]);
 
 // eslint-disable-next-line no-undef
-print("Data inserted successfully.");
+print("Data inserted successfully.")
