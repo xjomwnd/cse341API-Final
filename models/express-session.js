@@ -1,7 +1,7 @@
-// express-session.js
+// express-sessions.js
 
 const express = require('express');
-const session = require('express-session');
+const session = require('express-session'); // Correct import statement
 
 // Create a new Express application
 const app = express();
