@@ -30,7 +30,10 @@ app.use((err, req, res, next) => {
 
 async function startServer() {
   try {
+    console.log('Initializing database connection...');
     await mongodb.initDb();
+    console.log('Database connection initialized successfully.');
+
     app.listen(port, () => {
       console.log(`Connected to DB and listening on port ${port}`);
     });
