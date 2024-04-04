@@ -1,7 +1,7 @@
 // Import any required modules
 const { validationResult, body } = require('express-validator');
 // Define the validation middleware function
-const session = require('./express-session');
+const session = require('./models/express-session');
 
 const validateComment = [
   // Specify validation rules using express-validator
