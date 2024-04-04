@@ -5,14 +5,18 @@ const mongodb = require('./db/connect');
 const dotenv = require('dotenv');
 dotenv.config();
 
+// Assuming protectedRoutes.js is in the routes directory
+const protectedRoutes = require('./routes/protectedRoutes'); 
+
 // Add logging to check loaded environment variables
 console.log('Loaded environment variables:', process.env);
 
 const port = process.env.PORT || 8083;
 const app = express();
 
-// Mount the profileRouter for the /profile route
-app.use('/profile', profileRouter);
+
+// Mount the protectedRoutes for the /profile route
+app.use('/', protectedRoutes);
 
 app.use(bodyParser.json());
 
