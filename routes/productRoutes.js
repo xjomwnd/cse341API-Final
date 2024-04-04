@@ -2,7 +2,8 @@
 // routes/productRoutes.js
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/Product');
+const newLocal = '../models/Product';
+const Product = require(newLocal);
 
 // Get all products
 router.get('/', async (req, res) => {

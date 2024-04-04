@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
@@ -9,6 +10,9 @@ console.log('Loaded environment variables:', process.env);
 
 const port = process.env.PORT || 8083;
 const app = express();
+
+// Mount the profileRouter for the /profile route
+app.use('/profile', protectedRouter);
 
 app.use(bodyParser.json());
 
