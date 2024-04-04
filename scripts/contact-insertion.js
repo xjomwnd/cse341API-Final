@@ -6,6 +6,7 @@ mongoose.connect('mongodb+srv://finalproject:7Thayowaku77@cluster0.hbwhk.mongodb
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 const db = mongoose.connection;
 
 // Define contact schema
