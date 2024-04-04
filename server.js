@@ -4,8 +4,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const dotenv = require('dotenv');
-const session = require('express-session')
+const session = require('express-session');
 dotenv.config();
+
+const app = express(); // Define app here
 
 // Assuming express-session.js is in the same directory
 const sessionMiddleware = require('./express-session'); 
@@ -20,8 +22,6 @@ const protectedRoutes = require('./routes/protectedRoutes');
 console.log('Loaded environment variables:', process.env);
 
 const port = process.env.PORT || 8083;
-const app = express();
-
 
 // Mount the protectedRoutes for the /profile route
 app.use('/', protectedRoutes);
