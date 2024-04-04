@@ -5,12 +5,14 @@ const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const dotenv = require('dotenv');
 const session = require('express-session');
+const sessionMiddleware = require('./express-sessions');
+
+
 dotenv.config();
 
 const app = express(); // Define app here
 
 // Assuming express-session.js is in the same directory
-const sessionMiddleware = require('./express-session'); 
 
 // Use the session middleware in your application
 app.use(sessionMiddleware);
