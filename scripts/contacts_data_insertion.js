@@ -34,3 +34,17 @@ db.contacts.insertMany([
 
 // eslint-disable-next-line no-undef
 print("Data inserted successfully.");
+
+// Assuming this is your MongoDB connection setup code
+const mongoose = require('mongoose');
+
+// Accessing the DB_URI environment variable
+const dbURI = process.env.DB_URI;
+
+// Connecting to MongoDB
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+    // Additional code after successful connection
+  })
+  .catch((err) => console.error('Error connecting to MongoDB:', err));
