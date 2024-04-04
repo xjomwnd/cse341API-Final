@@ -1,6 +1,8 @@
 // Import any required modules
 const { validationResult, body } = require('express-validator');
 // Define the validation middleware function
+const session = require('./express-session');
+
 const validateComment = [
   // Specify validation rules using express-validator
   body('comment').trim().isLength({ min: 1 }).withMessage('Comment must not be empty'),
