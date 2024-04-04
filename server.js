@@ -5,6 +5,12 @@ const mongodb = require('./db/connect');
 const dotenv = require('dotenv');
 dotenv.config();
 
+// Assuming express-session.js is in the same directory
+const sessionMiddleware = require('./express-session'); 
+
+// Use the session middleware in your application
+app.use(sessionMiddleware);
+
 // Assuming protectedRoutes.js is in the routes directory
 const protectedRoutes = require('./routes/protectedRoutes'); 
 
