@@ -1,36 +1,63 @@
-// Inserting data from the provided JSON into MongoDB collections
+// Import required modules
+const mongoose = require('mongoose');
 
-// Connect to MongoDB server
-// Make sure MongoDB is running and accessible
-// Use appropriate connection string and database name
-// eslint-disable-next-line no-undef
-var conn = new Mongo();
-var db = conn.getDB("finalproject");
+// Connect to MongoDB database
+mongoose.connect('mongodb://localhost:27017/mydatabase', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const db = mongoose.connection;
 
-// Insert contacts data into the contacts collection
-db.contacts.insertMany([
+// Define contact schema
+const contactSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  favoriteColor: String,
+  birthday: String,
+});
+
+// Define Contact model
+const Contact = mongoose.model('Contact', contactSchema);
+
+// Sample contact data
+const contactsData = [
   {
-    "firstName": "Sarah",
-    "lastName": "Birch",
-    "email": "amazingwoman@test.com",
-    "favoriteColor": "Green",
-    "birthday": "12/12/20"
+    firstName: "Sarah",
+    lastName: "Birch",
+    email: "amazingwoman@test.com",
+    favoriteColor: "Green",
+    birthday: "12/12/20"
   },
   {
-    "firstName": "Jimmy",
-    "lastName": "Carter",
-    "email": "jCarter@test.com",
-    "favoriteColor": "Purple",
-    "birthday": "07/12/10"
+    firstName: "Jimmy",
+    lastName: "Carter",
+    email: "jCarter@test.com",
+    favoriteColor: "Purple",
+    birthday: "07/12/10"
   },
   {
-    "firstName": "Cassandra",
-    "lastName": "Anderson",
-    "email": "AndersonC@test.com",
-    "favoriteColor": "Yellow",
-    "birthday": "02/22/95"
+    firstName: "Cassandra",
+    lastName: "Anderson",
+    email: "AndersonC@test.com",
+    favoriteColor: "Yellow",
+    birthday: "02/22/95"
   }
-]);
+];
 
-// eslint-disable-next-line no-undef
-print("Data inserted successfully.")
+// Function to insert contact data
+async function insertContacts() {
+  try {
+    // Insert contacts data into the database
+    await Contact.insertMany(contactsData);
+    console.log('Data inserted successfully.');
+  } catch (error) {
+    console.error('Error inserting contacts:', error);
+  } finally {
+    // Close database connection
+    db.close();
+  }
+}
+
+// Call the function to insert contact data
+insertContacts();
