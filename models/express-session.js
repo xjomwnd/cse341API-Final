@@ -2,6 +2,7 @@
 
 const express = require('express');
 const session = require('express-session'); // Correct import statement
+const validateComment = require('./validateComment');
 
 // Create a new Express application
 const app = express();
