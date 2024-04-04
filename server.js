@@ -12,7 +12,7 @@ const port = process.env.PORT || 8083;
 const app = express();
 
 // Mount the profileRouter for the /profile route
-app.use('/profile', protectedRouter);
+app.use('/profile', profileRouter);
 
 app.use(bodyParser.json());
 
