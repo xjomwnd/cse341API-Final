@@ -4,6 +4,9 @@ const mongodb = require('./db/connect');
 const dotenv = require('dotenv');
 dotenv.config();
 
+// Add logging to check loaded environment variables
+console.log('Loaded environment variables:', process.env);
+
 const port = process.env.PORT || 8083;
 const app = express();
 
