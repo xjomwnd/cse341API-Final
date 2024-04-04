@@ -1,13 +1,26 @@
 const session = require('express-session');
-const config = require('../config/config');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
+// Create a new MongoDBStore instance
+const store = new MongoDBStore({
+  uri: 'mongodb+srv://finalproject:7Thayowaku77@cluster0.hbwhk.mongodb.net/cse341-Fina',
+  collection: 'sessions'
+});
+
+// Error handling for MongoDBStore
+store.on('error', function(error) {
+  console.error('Session store error:', error);
+});
+
+// Session middleware configuration
 const sessionMiddleware = session({
-  secret: config.sessionSecret, // Secret key for signing the session ID cookie
-  resave: false, // Forces the session to be saved back to the session store
-  saveUninitialized: false, // Forces a session that is "uninitialized" to be saved to the store
+  secret: 'your_secret_here', // Provide a secret key
+  resave: false,
+  saveUninitialized: false,
+  store: store,
   cookie: {
-    maxAge: config.sessionMaxAge, // Maximum age of the session cookie (in milliseconds)
-  },
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
+  }
 });
 
 module.exports = sessionMiddleware;
