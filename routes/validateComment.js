@@ -2,7 +2,7 @@
 const { validationResult, body } = require('express-validator');
 // Define the validation middleware function
 // eslint-disable-next-line no-unused-vars
-const session = require('./models/express-session');
+const session = require('express-session');
 
 const validateComment = [
   // Specify validation rules using express-validator
