@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const dotenv = require('dotenv');
+const session = require('express-session')
 dotenv.config();
 
 // Assuming express-session.js is in the same directory
