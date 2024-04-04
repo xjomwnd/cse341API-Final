@@ -2,6 +2,7 @@
 
 const express = require('express');
 const session = require('express-session'); // Correct import statement
+// eslint-disable-next-line no-unused-vars
 const validateComment = require('./validateComment');
 
 // Create a new Express application
