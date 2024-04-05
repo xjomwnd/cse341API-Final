@@ -22,8 +22,6 @@ app.use(sessionMiddleware);
 // Assuming protectedRoutes.js is in the routes directory
 const protectedRoutes = require('./routes/protectedRoutes'); 
 
-// Add logging to check loaded environment variables
-console.log('Loaded environment variables:', process.env);
 
 const port = process.env.PORT || 8083;
 
