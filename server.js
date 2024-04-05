@@ -1,55 +1,31 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const mongodb = require('./db/connect');
-const session = require('express-session');
-const sessionMiddleware = require('./models/express-session');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const db = require('./db/mongoose'); // Import mongoose.js for database connection
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Use the session middleware in your application
-app.use(sessionMiddleware);
-
-// Assuming protectedRoutes.js is in the routes directory
-const protectedRoutes = require('./routes/protectedRoutes');
-
-const port = process.env.PORT || 8083;
-
-// Mount the protectedRoutes for the /profile route
-app.use('/', protectedRoutes);
-
+// Middleware
 app.use(bodyParser.json());
 
-// Middleware to allow cross-origin requests
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
+// Define routes
+app.get('/', (req, res) => {
+  res.send('Welcome to the Social Media Aggregator API');
 });
 
-// Routes
-app.use('/', require('./routes'));
-
-// Error handling middleware
-// eslint-disable-next-line no-unused-vars
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
-
-async function startServer() {
+// Example route for handling social media data
+app.post('/socialmedia', async (req, res) => {
   try {
-    await mongodb.initDb();
-    app.listen(port, () => {
-      console.log(`Connected to DB and listening on port ${port}`);
-    });
-  } catch (err) {
-    console.error('Error connecting to database:', err);
-    process.exit(1); // Exit with non-zero code to indicate failure
+    // Here you can handle incoming social media data and save it to the database using Mongoose
+    res.status(200).json({ message: 'Social media data received and saved successfully' });
+  } catch (error) {
+    console.error('Error saving social media data:', error.message);
+    res.status(500).json({ error: 'Internal server error' });
   }
-}
+});
 
-startServer();
-
-module.exports = app;
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
