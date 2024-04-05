@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('./db/mongoose'); // Import mongoose.js for database connection
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8083;
 
 // Middleware
 app.use(bodyParser.json());
