@@ -39,6 +39,7 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
+// eslint-disable-next-line no-unused-vars
 async function startServer() {
   try {
     await mongodb.initDb();
