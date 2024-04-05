@@ -1,3 +1,4 @@
 node_modules
 .env
 .env
+DB_URI=mongodb+srv://finalproject:7Thayowaku77@cluster0.hbwhk.mongodb.net/cse341-Final
