@@ -1,0 +1,36 @@
+// Import the necessary libraries
+const axios = require('axios'); // or use fetch API for browser environments
+const app = require('../app'); // Assuming your Express app is defined in app.js
+
+// Define the base URL of your API server
+const baseURL = 'http://localhost:3000'; // Update with your actual API server URL
+
+// Test suite for API endpoint insertion
+describe('API Endpoint Insertion', () => {
+  // Test case for inserting a new resource
+  it('should insert a new resource', async () => {
+    // Define the data to be inserted
+    const newData = {
+      // Specify the data properties here
+      // Example:
+      // name: 'New Resource',
+      // description: 'This is a new resource',
+    };
+
+    // Make a POST request to the API endpoint for inserting resources
+    const response = await axios.post(`${baseURL}/api/resources`, newData);
+
+    // Assert that the response status is 201 (Created)
+    expect(response.status).toBe(201);
+
+    // Assert that the response body contains the inserted resource
+    expect(response.data).toMatchObject(newData);
+
+    // Optionally, you can retrieve the inserted resource from the database and further verify its correctness
+    // Example:
+    // const insertedResource = await Resource.findById(response.data._id);
+    // expect(insertedResource).toMatchObject(newData);
+  });
+  
+  // Add more test cases for different scenarios as needed
+});
