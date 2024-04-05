@@ -1,14 +1,14 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-// Add logging to check loaded environment variables
-console.log('Loaded environment variables:', process.env);
-
 const { MongoClient } = require('mongodb');
 
 let _db;
 
 const initDb = async () => {
+  // Add logging to check loaded environment variables
+  console.log('Loaded environment variables:', process.env);
+
   try {
     if (_db) {
       console.log('Db is already initialized!');
