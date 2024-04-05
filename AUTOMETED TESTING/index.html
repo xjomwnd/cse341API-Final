@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,20 @@
 </head>
 <body>
     <h1>Frontend API Interaction</h1>
+    
+    <div id="form-container">
+        <h2>Insert Data</h2>
+        <form id="data-form">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message"></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
     <div id="result"></div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- Import Axios library -->
