@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
 
 // Database connection URI
-const DB_URI = 'mongodb+srv://finalproject:7Thayowaku77@cluster0.hbwhk.mongodb.net/cse341-Final';
+const DB_URI = 'mongodb+srv://finalproject:7Thayowaku77@cluster0.hbwhk.mongodb.net/cse341-Final'; 
 
 // Connect to MongoDB
-mongoose.connect(DB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  // Remove the following options as they're not supported in Mongoose v6
-  // useCreateIndex: true,
-  // useFindAndModify: false
-});
+mongoose.connect(DB_URI);
 
 // Get the default connection
 const db = mongoose.connection;
