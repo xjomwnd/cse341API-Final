@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // Function to fetch data from the API endpoint and display the result
 async function fetchData() {
     try {
