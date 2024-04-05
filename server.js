@@ -1,27 +1,19 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const session = require('express-session');
 const sessionMiddleware = require('./models/express-session');
-
 const dotenv = require('dotenv');
-
-
 
 dotenv.config();
 
-const app = express(); // Define app here
-
-// Assuming express-session.js is in the same directory
+const app = express();
 
 // Use the session middleware in your application
 app.use(sessionMiddleware);
 
 // Assuming protectedRoutes.js is in the routes directory
-const protectedRoutes = require('./routes/protectedRoutes'); 
-
+const protectedRoutes = require('./routes/protectedRoutes');
 
 const port = process.env.PORT || 8083;
 
@@ -59,3 +51,5 @@ async function startServer() {
 }
 
 startServer();
+
+module.exports = app;
