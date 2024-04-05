@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
@@ -9,6 +11,30 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
+
+
+const initDb = async () => {
+  // Add logging to check loaded environment variables
+  console.log('Loaded environment variables:', process.env);
+
+  try {
+    // eslint-disable-next-line no-undef
+    if (_db) {
+      console.log('Db is already initialized!');
+      // eslint-disable-next-line no-undef
+      return _db;
+    }
+    // eslint-disable-next-line no-undef
+    const client = await MongoClient.connect(process.env.MONGODB_URI);
+    _db = client.db(); // Access the database from the client
+    console.log('Connected to MongoDB');
+    return _db;
+  } catch (err) {
+    console.error('Error initializing database:', err);
+    throw err; // Propagate the error to the caller
+  }
+};
+
 
 // Use the session middleware in your application
 app.use(sessionMiddleware);
