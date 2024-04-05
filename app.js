@@ -2,15 +2,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
-dotenv.config();
 // eslint-disable-next-line no-unused-vars
 const session = require('express-session');
 const sessionMiddleware = require('./models/express-session');
-
-
 const app = express();
 
-
+dotenv.config();
 // Use the session middleware in your application
 app.use(sessionMiddleware);
 
