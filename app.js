@@ -5,6 +5,8 @@ const mongodb = require('./db/connect');
 // eslint-disable-next-line no-unused-vars
 const session = require('express-session');
 const sessionMiddleware = require('./models/express-session');
+const dotenv = require('dotenv');
+
 const app = express();
 
 dotenv.config();
